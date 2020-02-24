@@ -1,0 +1,11 @@
+/*
+ * class::PascalCase
+ * method::camelCase
+ * function::camelCase
+ * namespace::normal
+ * enum values::_SCREAMING_SNAKE_CASE_
+ * enum name::nomal
+ * const::UPPERCASE_SNAKE_CASE
+ * var::camelCase
+ * 
+*/
