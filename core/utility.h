@@ -85,4 +85,14 @@ namespace cloudrain::utility {
     }
 }
 
+// unique::token
+namespace cloudrain::utility {
+    namespace  {
+        //unique::token
+    }
+    namespace token {
+
+    }
+}
+
 #endif // UTILITY_H

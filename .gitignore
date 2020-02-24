@@ -1,0 +1,9 @@
+
+test/Makefile
+*.Debug
+*.Release
+*.user
+*.stash
+*.exe
+*.o
+cloudRainServer/src/build-cloudrain-Desktop_Qt_5_12_3_MinGW_64_bit-Debug/Makefile
