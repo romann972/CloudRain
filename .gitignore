@@ -12,3 +12,4 @@ cloudRainServer/src/build-cloudrain-Desktop_Qt_5_12_3_MinGW_64_bit-Debug/debug/m
 cloudRainServer/src/build-cloudrain-Desktop_Qt_5_12_3_MinGW_64_bit-Debug/debug/moc_predefs.h
 test/debug/test.exe
 test/debug/test.exe
+*.exe
