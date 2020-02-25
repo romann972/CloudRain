@@ -1,9 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QLabel>
 
-namespace cloudrain::gui {
+#include <QDebug>
 
+
+
+namespace cloudrain{
+namespace gui {
     class MainWindow : public QMainWindow
     {
         Q_OBJECT
@@ -19,7 +26,7 @@ namespace cloudrain::gui {
         protected slots :
         public slots :
     };
-
+}
 }
 
 #endif // MAINWINDOW_H
