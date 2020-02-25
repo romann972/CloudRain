@@ -5,12 +5,15 @@
 #include <QLineEdit>
 #include <QLabel>
 
+#ifdef QT_DEBUG
 #include <QDebug>
+#endif
 
-
+#include "connection.h"
 
 namespace cloudrain{
 namespace gui {
+
     class MainWindow : public QMainWindow
     {
         Q_OBJECT
@@ -20,12 +23,8 @@ namespace gui {
         public :
             explicit MainWindow(QWidget *parent = nullptr); // no explicit values plz
             virtual ~MainWindow() noexcept;
-
-        // use the functors if you can (with lambda preferably)
-        private slots :
-        protected slots :
-        public slots :
     };
+
 }
 }
 

@@ -1,19 +1,11 @@
 #include "mainwindow.h"
 
-
-/*
-QLabel(const QString &text, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags())
-QPushButton(const QIcon &icon, const QString &text, QWidget *parent = nullptr)
-QLineEdit(const QString &contents, QWidget *parent = nullptr)
-QCheckBox(const QString &text, QWidget *parent = nullptr)
-*/
-
 cloudrain::gui::MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     // UI WINDOWS //
     setFixedSize(800,450);
-    setWindowIcon(QIcon("Icon en attente YaYa94"));
+    setWindowIcon(QIcon("path"));
 
 //    QMenuBar *mainMenu = new QMenuBar(this);
 //    QMenu *fileMenu = new QMenu(mainMenu);
@@ -60,8 +52,9 @@ cloudrain::gui::MainWindow::MainWindow(QWidget *parent)
     clearButton->setGeometry(50, 350, 150 , 40);
     //*********************************
 
+
     // CONNEXION IMPLEMENTED WIDGETS //
-    QObject::connect(optionsButton, &QPushButton::clicked, []()->void {
+    QObject::connect(clearButton, &QPushButton::clicked, []()->void {
         qDebug()<<"fff";
     });
     //*********************************
