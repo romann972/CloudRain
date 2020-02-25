@@ -6,8 +6,10 @@ QMAKE_CXXFLAGS += -std=c++17
 
 SOURCES += \
     gui/mainwindow.cpp \
-    main.cpp
+    main.cpp \
+    gui/connection.cpp
 
 HEADERS += \
     gui/global.h \
-    gui/mainwindow.h
+    gui/mainwindow.h \
+    gui/connection.h

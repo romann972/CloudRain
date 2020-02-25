@@ -15,6 +15,13 @@ cloudrain::gui::MainWindow::MainWindow(QWidget *parent)
     setFixedSize(800,450);
     setWindowIcon(QIcon("Icon en attente YaYa94"));
 
+//    QMenuBar *mainMenu = new QMenuBar(this);
+//    QMenu *fileMenu = new QMenu(mainMenu);
+//    QMenu *editMenu = new QMenu(mainMenu);
+//    QMenu *optionsMenu = new QMenu(mainMenu);
+//    QMenu *langageMenu = new QMenu(mainMenu);
+//    QMenu *aideMenu = new QMenu(mainMenu);
+
     // CONNEXION  WIDGETS //
     QLineEdit *usernameEdit = new QLineEdit(this);
     QLineEdit *idEdit = new QLineEdit(this);
@@ -24,8 +31,9 @@ cloudrain::gui::MainWindow::MainWindow(QWidget *parent)
     QLabel *ipLabel = new QLabel("Adresse IP : ", this);
     QLabel *usernameLabel = new QLabel("Username : ", this);
     QLabel *connectionTitle = new QLabel("Connexion", this);
+    //*********************************
 
-    // WIDGETS UI //
+    // CONNEXION WIDGETS UI //
     usernameEdit->setGeometry(50, 350, 150 , 40);
     idEdit->setGeometry(50, 350, 150 , 40);
     ipEdit->setGeometry(50, 350, 150 , 40);
@@ -34,12 +42,35 @@ cloudrain::gui::MainWindow::MainWindow(QWidget *parent)
     ipLabel->setGeometry(50, 350, 150 , 40);
     usernameLabel->setGeometry(50, 350, 150 , 40);
     connectionTitle->setGeometry(50, 350, 150 , 40);
+    //*********************************
 
-    // IMPLEMENTED WIDGETS //
+    //  ACCUEIL WIDGETS UI //
+    QLabel *analyseTitleLabel = new QLabel("Logs Analyse", this);
+    QPushButton *logsServerButton = new QPushButton("Logs Server", this);
+    QPushButton *logsWebSiteButton = new QPushButton("Logs WebSite", this);
+    QPushButton *logsAccessButton = new QPushButton("Logs Access", this);
+    QPushButton *clearButton = new QPushButton("Clear", this);
+    //*********************************
+
+    // ACCUEIL WIDGETS UI //
+    analyseTitleLabel->setGeometry(50, 350, 150 , 40);
+    logsServerButton->setGeometry(50, 350, 150 , 40);
+    logsWebSiteButton->setGeometry(50, 350, 150 , 40);
+    logsAccessButton->setGeometry(50, 350, 150 , 40);
+    clearButton->setGeometry(50, 350, 150 , 40);
+    //*********************************
+
+    // CONNEXION IMPLEMENTED WIDGETS //
     QObject::connect(optionsButton, &QPushButton::clicked, []()->void {
         qDebug()<<"fff";
     });
+    //*********************************
 
+    // ACCUEIL IMPLEMENTED WIDGETS //
+    QObject::connect(optionsButton, &QPushButton::clicked, []()->void {
+        qDebug()<<"fff";
+    });
+    //*********************************
 
 
 }
