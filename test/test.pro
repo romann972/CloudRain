@@ -9,8 +9,10 @@ SOURCES += \
     ../core/utility.cpp \
     ../core/xmlparser.cpp \
     ../core/jsonparser.cpp \
+    ../core/file.cpp \
 
 HEADERS += \
     ../core/utility.h \
     ../core/xmlparser.h \
     ../core/jsonparser.h \
+    ../core/file.h \
