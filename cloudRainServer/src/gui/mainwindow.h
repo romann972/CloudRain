@@ -10,6 +10,7 @@
 #endif
 
 #include "connection.h"
+#include "../db/management.h"
 
 namespace cloudrain{
 namespace gui {
@@ -21,7 +22,7 @@ namespace gui {
         private :
         protected:
         public :
-            explicit MainWindow(QWidget *parent = nullptr); // no explicit values plz
+            explicit MainWindow(QWidget *parent = nullptr);
             virtual ~MainWindow() noexcept;
     };
 

@@ -30,5 +30,10 @@ namespace cloudrain::gui::global {
     namespace icon {
 
     }
+    namespace target {
+        namespace  {
+
+        }
+    }
 }
 #endif // GLOBAL_H

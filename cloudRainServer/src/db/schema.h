@@ -12,7 +12,7 @@ namespace db {
             QStringList allTables;
 
         public :
-            Schema() = default;
+            Schema(const QString prefix);
             Schema(Schema &) = delete;
             Schema &operator=(Schema &) = delete;
             Schema(Schema &&) = delete;
