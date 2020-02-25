@@ -7,6 +7,10 @@ QMAKE_CXXFLAGS += -std=c++17
 SOURCES += \
     main.cpp \
     ../core/utility.cpp \
+    ../core/xmlparser.cpp \
+    ../core/jsonparser.cpp \
 
 HEADERS += \
     ../core/utility.h \
+    ../core/xmlparser.h \
+    ../core/jsonparser.h \
