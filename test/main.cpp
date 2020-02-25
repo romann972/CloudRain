@@ -1,6 +1,7 @@
 #include "../core/utility.h"
 #include "../core/jsonparser.h"
 #include "../core/xmlparser.h"
+#include "../core/file.h"
 
 #include <QDebug>
 
@@ -32,5 +33,18 @@ int main()
     cloudrain::utility::timer::endTimerNs();
 
     cloudrain::utility::parser::JsonParser jsonParser;
+
+    // io
+    cloudrain::utility::io::File file("D:/Qt programmation/test.txt");
+
+    // io write bonjour
+    file.write("bonjour");
+
+    // io read
+    qDebug()<<file.readAll();
+
+    // is extension
+    qDebug()<<file.isExentension("txt");
+
     return 0;
 }
