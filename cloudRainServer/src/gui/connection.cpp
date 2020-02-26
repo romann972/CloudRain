@@ -13,10 +13,10 @@ cloudrain::gui::Connection::Connection(QWidget *parent)
     this->initButton();
     this->initLineEdit();
 
-    this->cascadingStyleSheets();
+   // this->cascadingStyleSheets();
 }
 
-void cloudrain::gui::Connection::cascadingStyleSheets()
+/*void cloudrain::gui::Connection::cascadingStyleSheets()
 {
     this->setStyleSheet("QPushButton::hover {"
                                 "background: transparent;"
@@ -33,7 +33,7 @@ void cloudrain::gui::Connection::cascadingStyleSheets()
                                 "image: url(C:/Users/yyakoubi/Downloads/flag_united-kingdom_512.png);"
                             "}"
                             );
-}
+}*/
 
 void cloudrain::gui::Connection::initLabel()
 {
@@ -45,11 +45,11 @@ void cloudrain::gui::Connection::initLabel()
     idLabel->setGeometry(265, 150, 80 , 25);
     ipLabel->setGeometry(265, 200, 80 , 25);
     tokenLabel->setGeometry(265, 250, 80 , 25);
-    connectionTitle->setGeometry(400, 50, 50 , 40);
+    connectionTitle->setGeometry(400, 50, 60 , 40);
 
-    idLabel->setAlignment(Qt::AlignRight);
-    ipLabel->setAlignment(Qt::AlignRight);
-    tokenLabel->setAlignment(Qt::AlignRight);
+    idLabel->setAlignment(Qt::AlignCenter | Qt::AlignRight);
+    ipLabel->setAlignment(Qt::AlignCenter | Qt::AlignRight);
+    tokenLabel->setAlignment(Qt::AlignCenter | Qt::AlignRight);
 }
 
 void cloudrain::gui::Connection::initButton()
@@ -65,11 +65,40 @@ void cloudrain::gui::Connection::initButton()
      QPushButton *cancelButton = new QPushButton(QObject::tr("Cancel"), this);
 
      cancelButton->setGeometry(425, 350, 150 , 40);
+     cancelButton->setIcon(QIcon(global::icon::FLAG_FR_512));
 
      QObject::connect(cancelButton, &QPushButton::clicked, []()->void {
         qDebug()<<"optButton";
      });
+
+     QPushButton *frButton = new QPushButton(QObject::tr(""), this);
+     frButton->setGeometry(300, 300, 50 , 50);
+     frButton->setIcon(QIcon(global::icon::FLAG_FR_512));
+     frButton->setIconSize(QSize(50, 50));
+     frButton->setStyleSheet("background: transparent;"
+                             "QPushButton::hover {"
+                             "background: blue;"
+                                "image: url("+ global::icon::INFO_512 +");"
+                             "}");
+     QPushButton *enButton = new QPushButton(QObject::tr(""), this);
+     enButton->setGeometry(375, 300, 50 , 50);
+     enButton->setIcon(QIcon(global::icon::FLAG_UK_512));
+     QPushButton *ptButton = new QPushButton(QObject::tr(""), this);
+     ptButton->setGeometry(450, 300, 50 , 50);
+     ptButton->setIcon(QIcon(global::icon::FLAG_FR_512));
+     QPushButton *dzButton = new QPushButton(QObject::tr(""), this);
+     dzButton->setGeometry(525, 300, 50 , 50);
+     dzButton->setIcon(QIcon(global::icon::FLAG_FR_512));
+
+
+
+
+
+
+
+
 }
+
 
 void cloudrain::gui::Connection::initLineEdit()
 {

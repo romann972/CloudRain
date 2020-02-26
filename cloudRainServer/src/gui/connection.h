@@ -40,7 +40,7 @@ namespace gui {
             void initLabel();
             void initButton();
             void initLineEdit();
-            void  cascadingStyleSheets();
+            void cascadingStyleSheets();
             virtual ~Connection() noexcept;
     };
 
