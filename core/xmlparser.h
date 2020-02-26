@@ -8,7 +8,10 @@
 #include <QDebug>
 #endif
 
-namespace cloudrain::utility::parser {
+namespace cloudrain {
+namespace utility {
+namespace parser {
+
     class XmlParser : public QObject
     {
         private :
@@ -20,5 +23,7 @@ namespace cloudrain::utility::parser {
             explicit XmlParser(const QString &path, QObject *parent = nullptr);
             virtual ~XmlParser() noexcept;
     };
+}
+}
 }
 #endif // XMLPARSER_H

@@ -8,26 +8,17 @@ cloudrain::gui::Options::Options(QWidget *parent)
     this->setWindowIcon(QIcon("Icon en attente YaYa94"));
 
     // OPTIONS TOOL BAR //
-
-
     QToolBar *toolBar = new QToolBar(this);
         QAction *openImage = new QAction("Open");
         QAction *editBar = new QAction("Edit");
         QAction *optionsBar = new QAction("Edit");
         QAction *langageBar = new QAction("Edit");
         QAction *helpBar = new QAction("Edit");
+
         //On doit faire un slot qui ouvre dans la fenêtre actuel l'image
         connect(openImage, SIGNAL(triggered()), this, SLOT(affichageImage()));
         openImage->setShortcut(QKeySequence("Ctrl+O"));
         toolBar->addAction(openImage);
-
-//     QToolBar *help = new QToolBar(this);
-//        QAction *helpAction = new QAction("Help");
-//        //Faire un slot qui va ouvrir un readme.txt se trouvant dans le dossier du logiciel pour l'utilisation du logiciel
-//        connect(helpAction, SIGNAL(triggered()), this, SLOT(affichageDossier()));
-//        helpAction->setShortcut(QKeySequence("Ctrl+H"));
-//        help->addAction(helpAction);
-
 
     //  OPTIONS WIDGETS UI //
     QComboBox *languageComboBox = new QComboBox(this);
