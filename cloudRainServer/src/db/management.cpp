@@ -9,9 +9,7 @@ QSqlQuery cloudrain::db::Management::query = QSqlQuery(cloudrain::db::Management
 
 bool cloudrain::db::Management::connect()
 {
-    using namespace cloudrain::db;
-
-    if(Management::db.isOpen()==false)
+    if(Management::db.isOpen() == false)
     {
         Management::db.setDatabaseName(Management::path);
         Management::db.setHostName(Management::hostName);
@@ -29,9 +27,7 @@ bool cloudrain::db::Management::connect()
 
 bool cloudrain::db::Management::disconnect()
 {
-    using namespace cloudrain::db;
-
-    if(Management::db.isOpen()==true)
+    if(Management::db.isOpen() == true)
     {
         Management::db.close();
 
@@ -43,9 +39,16 @@ bool cloudrain::db::Management::disconnect()
 
 void cloudrain::db::Management::createTable()
 {
-   using cloudrain::db::Schema;
+    using cloudrain::db::Schema;
 
-   Schema schema(Management::createPrefix());
+    Schema schema("Management::createPrefix()");
+
+   for(auto &i : schema.getSchema())
+   {
+        Management::query.prepare(i);
+        Management::query.exec();
+        if(true) {}
+   }
 }
 
 QString cloudrain::db::Management::readPrefix()
@@ -55,8 +58,7 @@ QString cloudrain::db::Management::readPrefix()
 
 QString cloudrain::db::Management::createPrefix()
 {
-    using cloudrain::utility::sql::qGeneratePrefix;
-    return qGeneratePrefix(6);
+    return cloudrain::utility::sql::qGeneratePrefix(6);
 }
 
 void cloudrain::db::Management::deleteTable(QString name)

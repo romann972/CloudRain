@@ -26,3 +26,7 @@ HEADERS += \
     gui/connection.h \
     gui/menu.h \
     gui/options.h
+
+
+RESOURCES += \
+    db/SQLite.txt

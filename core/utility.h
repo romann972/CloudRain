@@ -61,7 +61,7 @@ namespace cloudrain::utility {
 
 
 
-/*
+
 // test timer (cout)
 namespace cloudrain::utility {
 
@@ -70,32 +70,32 @@ namespace cloudrain::utility {
         using clock = std::chrono::high_resolution_clock;
         static std::chrono::steady_clock::time_point beginTimer;
 
-        void disableSyncStdio()
+        inline void disableSyncStdio()
         {
             std::ios::sync_with_stdio(false);
             std::cin.tie (nullptr);
         }
 
-        void startTimer()
+        inline void startTimer()
         {
             beginTimer = std::chrono::steady_clock::now();
         }
 
-        void endTimerUs()
+        inline void endTimerUs()
         {
             std::chrono::steady_clock::time_point endTimer = std::chrono::steady_clock::now();
             std::cout << std::chrono::duration_cast<std::chrono::microseconds>(endTimer - beginTimer).count()
                       << " us \n";
         }
 
-        void endTimerNs()
+        inline void endTimerNs()
         {
             std::chrono::steady_clock::time_point endTimer = std::chrono::steady_clock::now();
             std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(endTimer - beginTimer).count()
                       << " ns \n";
         }
 
-        void endTimerS()
+        inline void endTimerS()
         {
             std::chrono::steady_clock::time_point endTimer = std::chrono::steady_clock::now();
             std::cout << std::chrono::duration_cast<std::chrono::seconds>(endTimer - beginTimer).count()
@@ -144,7 +144,7 @@ namespace cloudrain::utility {
             _KECCAK_512_ = 15
         };
 
-        QString hashGenerator(const QString method)
+        inline QString hashGenerator(const QString method)
         {
             QVector<QString> hashMethod{
                                         "MD4","MD5","SHA1",
@@ -251,13 +251,13 @@ namespace cloudrain::utility {
 
     namespace token {
 
-        QString tokenGenerator(const QString method = "random")
+        inline QString tokenGenerator(const QString method = "random")
         {
             return utility::crypto::hashGenerator(method);
         }
 
         // overload
-        QString tokenGenerator(const int strLimit, const QString method = "random")
+        inline QString tokenGenerator(const int strLimit, const QString method = "random")
         {
             QString myHash = utility::crypto::hashGenerator(method);
             if(strLimit < myHash.size())
@@ -271,6 +271,6 @@ namespace cloudrain::utility {
 
 } // END NAMESPACE cloudrain::utility
 
-*/
+
 
 #endif // UTILITY_H

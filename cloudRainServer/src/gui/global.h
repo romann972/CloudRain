@@ -31,7 +31,10 @@ namespace cloudrain::gui::global {
 
     }
     namespace target {
-        namespace  {
+        namespace mysql {
+
+        }
+        namespace apache {
 
         }
     }
