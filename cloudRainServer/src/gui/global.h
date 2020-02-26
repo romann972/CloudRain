@@ -10,7 +10,7 @@
 
 namespace cloudrain::gui::global {
 #ifdef QT_DEBUG
-    const QString PATH = ""; // your path
+    const QString PATH = QStringLiteral(""); // your path
 #endif
 
 #ifdef QT_NO_DEBUG
@@ -19,7 +19,7 @@ namespace cloudrain::gui::global {
 
     namespace img {
         // example
-        const QString BACKGROUND = PATH + "/rcs/background.png";
+        const QString BACKGROUND = PATH + QStringLiteral("/rcs/background.png");
 
         // use cloudrain::gui::global::img::BACKGROUND
         // or
@@ -31,11 +31,17 @@ namespace cloudrain::gui::global {
 
     }
     namespace target {
+        const QString ROOT_PATH = QStringLiteral("");
         namespace mysql {
-
+            const QString MYSQL_LOG = PATH + QStringLiteral("");
+            const QString MYSQL_VAR_ENV = QStringLiteral("");
+            const QString MYSQL_PORT = QStringLiteral("");
         }
         namespace apache {
-
+            const QString APACHE_DIR = QStringLiteral("");
+            const QString APACHE_LOG = APACHE_DIR + QStringLiteral("");
+            const QString APACHE_CONF = APACHE_DIR + QStringLiteral("");
+            const QString APACHE_VIRTUAL_HOST = APACHE_DIR + QStringLiteral("");
         }
     }
 }

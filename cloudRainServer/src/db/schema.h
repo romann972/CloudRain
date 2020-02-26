@@ -21,22 +21,22 @@ namespace db {
             ~Schema() noexcept;
 
             // schema
-            QStringList getSchema() const;
+            QStringList getSchema();
 
             // table
-            QString getServer() const;
-            QString getTime() const;
-            QString getSrvInfo() const;
+            QString getServer();
+            QString getTime();
+            QString getSrvInfo();
 
-            QString getClient() const;
+            QString getClient();
 
-            QString getMysql() const;
-            QString getMysqlMeta() const;
-            QString getAnalyseMysql() const;
+            QString getMysql();
+            QString getMysqlMeta();
+            QString getAnalyseMysql() ;
 
-            QString getApache() const;
-            QString getApacheMeta() const;
-            QString getAnalyseApache() const;
+            QString getApache();
+            QString getApacheMeta();
+            QString getAnalyseApache();
     };
 
 }

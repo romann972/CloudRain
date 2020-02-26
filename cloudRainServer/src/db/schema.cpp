@@ -14,25 +14,25 @@ cloudrain::db::Schema::Schema(const QString prefix) : prefix(prefix)
            << getAnalyseApache();
 }
 
-QStringList cloudrain::db::Schema::getSchema() const
+QStringList cloudrain::db::Schema::getSchema()
 {
     return this->tables;
 }
 
-QString cloudrain::db::Schema::getServer() const
+QString cloudrain::db::Schema::getServer()
 {
-
+    return "";
 }
-QString cloudrain::db::Schema::getTime() const
+QString cloudrain::db::Schema::getTime()
 {
-
+    return "";
 }
-QString cloudrain::db::Schema::getSrvInfo() const
+QString cloudrain::db::Schema::getSrvInfo()
 {
-
+   return "";
 }
 
-QString cloudrain::db::Schema::getClient() const
+QString cloudrain::db::Schema::getClient()
 {
     QString client = "CREATE TABLE IF NOT EXISTS "+ this->prefix +"client "
                      "("
@@ -46,7 +46,7 @@ QString cloudrain::db::Schema::getClient() const
     return client;
 }
 
-QString cloudrain::db::Schema::getMysql() const
+QString cloudrain::db::Schema::getMysql()
 {
     QString mysql = "CREATE TABLE IF NOT EXISTS "+ this->prefix +"mysql"
                     "("
@@ -54,11 +54,11 @@ QString cloudrain::db::Schema::getMysql() const
                         "id_client INTEGER,"
                         "date_GMT DATE NOT NULL,"
                         "date_UTC DATE NOT NULL,"
-                        "FOREIGN KEY(id_user) REFERENCES user(id)"
+                        "FOREIGN KEY(id_client) REFERENCES user(id)"
                     ");";
     return mysql;
 }
-QString cloudrain::db::Schema::getMysqlMeta() const
+QString cloudrain::db::Schema::getMysqlMeta()
 {
     QString mysqlMeta = "CREATE TABLE IF NOT EXISTS"+ this->prefix +"mysql_meta"
                         "("
@@ -70,12 +70,15 @@ QString cloudrain::db::Schema::getMysqlMeta() const
                           ");";
     return mysqlMeta;
 }
-QString cloudrain::db::Schema::getAnalyseMysql() const
+QString cloudrain::db::Schema::getAnalyseMysql()
 {
-
+    QString analyseMysql = "CREATE TABLE IF NOT EXISTS"+ this->prefix +" analyse_mysql"
+                           "("
+                           ");";
+    return analyseMysql;
 }
 
-QString cloudrain::db::Schema::getApache() const
+QString cloudrain::db::Schema::getApache()
 {
     QString apache = "CREATE TABLE IF NOT EXISTS "+ this->prefix +"apache"
                      "("
@@ -83,11 +86,11 @@ QString cloudrain::db::Schema::getApache() const
                         "id_client INTEGER,"
                         "date_GMT DATE NOT NULL,"
                         "date_UTC DATE NOT NULL,"
-                        "FOREIGN KEY(id_user) REFERENCES user(id)"
+                        "FOREIGN KEY(id_client) REFERENCES user(id)"
                     ");";
     return apache;
 }
-QString cloudrain::db::Schema::getApacheMeta() const
+QString cloudrain::db::Schema::getApacheMeta()
 {
     QString apacheMeta = "CREATE TABLE IF NOT EXISTS" "apache_meta"
                          "("
@@ -99,9 +102,13 @@ QString cloudrain::db::Schema::getApacheMeta() const
                           ");";
     return apacheMeta;
 }
-QString cloudrain::db::Schema::getAnalyseApache() const
+QString cloudrain::db::Schema::getAnalyseApache()
 {
-
+    QString analyseMysql = "CREATE TABLE IF NOT EXISTS"+ this->prefix +" analyse_apache"
+                           "("
+                                "id INTEGER PRIMARY KEY AUTOINCREMENT"
+                           ");";
+    return analyseMysql;
 }
 
 cloudrain::db::Schema::~Schema() noexcept
