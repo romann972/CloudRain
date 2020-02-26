@@ -106,19 +106,29 @@ void cloudrain::gui::Connection::initLineEdit()
 void cloudrain::gui::Connection::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Escape)
-       {
-           windowAnimation->runWindowAnimation("windowGoUp", this);
-           QObject::connect(windowAnimation, &WindowAnimation::finishedAnimation, [this]()->void {
-               this->close();
-           });
-       }
+    {
+        windowAnimation->runWindowAnimation("windowGoUp", this);
+        QObject::connect(windowAnimation, &WindowAnimation::finishedAnimation, [this]()->void {
+            emit finishedConnection(true);
+            this->close();
+        });
+    }
+}
+
+void cloudrain::gui::Connection::connectionDestroyed()
+{
+    windowAnimation->runWindowAnimation("windowGoUp", this);
+    QObject::connect(windowAnimation, &WindowAnimation::finishedAnimation, [this]()->void {
+        emit finishedConnection(true);
+        this->close();
+    });
 }
 
 void cloudrain::gui::Connection::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     QColor color(0, 0, 0);
-    color.setAlpha(128);
+    color.setAlpha(192);
     painter.setBrush(QBrush(color));
     painter.setPen(Qt::NoPen);
     painter.drawRect(0, 0, this->width(), this->height());

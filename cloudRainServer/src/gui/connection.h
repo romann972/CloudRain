@@ -47,7 +47,11 @@ namespace gui {
             virtual void paintEvent(QPaintEvent *) override;
             virtual void keyPressEvent(QKeyEvent *event) override;
             void cascadingStyleSheets();
+            void connectionDestroyed();
             virtual ~Connection() noexcept override;
+
+        signals :
+            void finishedConnection(bool);
     };
 
 }

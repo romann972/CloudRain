@@ -12,6 +12,15 @@ cloudrain::gui::MainWindow::MainWindow(QWidget *parent)
     this->menu = new Menu(this);
     this->options = new Options(this);
 
+    QObject::connect(this->menu, &Menu::hideMainWindow, [this](bool hide)->void {
+        if(hide)
+        {
+            this->hide();
+        } else{
+            this->show();
+        }
+    });
+
     this->widgetStack->addWidget(menu);
     this->widgetStack->addWidget(options);
     this->widgetStack->setCurrentIndex(0);

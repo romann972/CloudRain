@@ -28,6 +28,9 @@ namespace gui {
             void initPushButton();
             void  cascadingStyleSheets();
             virtual ~Menu() noexcept;
+
+        signals:
+            void hideMainWindow(bool);
     };
 
 }

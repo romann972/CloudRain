@@ -89,8 +89,11 @@ void cloudrain::gui::Menu::initPushButton()
     QPushButton *connectionButton = new QPushButton("New client", this);
     connectionButton->setGeometry(100, 100, 60, 60);
     QObject::connect(connectionButton, &QPushButton::clicked, [this]()->void{
-        this->hide();
+        emit hideMainWindow(true);
         Connection connection;
+        QObject::connect(&connection, &Connection::finishedConnection, [this]()->void{
+            emit hideMainWindow(false);
+        });
         connection.exec();
     });
 }
