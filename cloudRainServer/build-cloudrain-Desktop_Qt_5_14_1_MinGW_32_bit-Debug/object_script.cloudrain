@@ -1,0 +1,12 @@
+management.o
+schema.o
+mainwindow.o
+main.o
+connection.o
+menu.o
+options.o
+qrc_qmake_qmake_immediate.o
+moc_mainwindow.o
+moc_connection.o
+moc_menu.o
+moc_options.o

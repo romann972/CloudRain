@@ -10,16 +10,16 @@
 
 namespace cloudrain::gui::global {
 #ifdef QT_DEBUG
-    const QString PATH = QStringLiteral(""); // your path
+    const QString PATH = QStringLiteral("C:/CloudRain/CloudRain/cloudRainServer/build/windows/rcs"); // your path
 #endif
 
 #ifdef QT_NO_DEBUG
-    const QString PATH = ""; // real path
+    const QString PATH = "/rcs"; // real path
 #endif
 
     namespace img {
         // example
-        const QString BACKGROUND = PATH + QStringLiteral("/rcs/background.png");
+
 
         // use cloudrain::gui::global::img::BACKGROUND
         // or
@@ -28,7 +28,11 @@ namespace cloudrain::gui::global {
         // use BACKGROUND
     }
     namespace icon {
-
+        const QString FLAG_FR_512 = PATH + QStringLiteral("/icon/flag_france_512.png");
+        const QString FLAG_UK_512 = PATH + QStringLiteral("/icon/flag_united-kingdom_512.png");
+        const QString HELP_512 = PATH + QStringLiteral("/icon/help_512.png");
+        const QString INFO_512 = PATH + QStringLiteral("/icon/information_512.png");
+        const QString SETTINGS_512 = PATH + QStringLiteral("/icon/settings_512.png");
     }
     namespace target {
         const QString ROOT_PATH = QStringLiteral("");

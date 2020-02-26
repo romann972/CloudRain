@@ -4,6 +4,8 @@ QT += sql
 
 TRANSLATIONS += cloudrain_fr.ts
 TRANSLATIONS += cloudrain_en.ts
+TRANSLATIONS += cloudrain_pt.ts
+TRANSLATIONS += cloudrain_ar.ts
 
 QMAKE_CXXFLAGS_RELEASE += -O3
 QMAKE_CXXFLAGS_DEBUG += -Og
