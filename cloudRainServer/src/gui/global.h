@@ -39,6 +39,8 @@ namespace global {
         const QString HELP_512 = PATH + QStringLiteral("/icon/help_512.png");
         const QString INFO_512 = PATH + QStringLiteral("/icon/information_512.png");
         const QString SETTINGS_512 = PATH + QStringLiteral("/icon/settings_512.png");
+        const QString CANCEL_512 = PATH + QStringLiteral("/icon/cancel_512.png");
+        const QString TICK_512 = PATH + QStringLiteral("/icon/tick_512.png");
     }
     namespace target {
         const QString ROOT_PATH = QStringLiteral("");
