@@ -14,11 +14,15 @@ SOURCES += \
     db/schema.cpp \
     gui/mainwindow.cpp \
     main.cpp \
-    gui/connection.cpp
+    gui/connection.cpp \
+    gui/menu.cpp \
+    gui/options.cpp
 
 HEADERS += \
     db/management.h \
     db/schema.h \
     gui/global.h \
     gui/mainwindow.h \
-    gui/connection.h
+    gui/connection.h \
+    gui/menu.h \
+    gui/options.h

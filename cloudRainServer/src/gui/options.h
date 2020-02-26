@@ -1,9 +1,12 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef OPTIONS_H
+#define OPTIONS_H
 #include <QDialog>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QComboBox>
+#include <QCheckBox>
+#include <QToolBar>
 
 #ifdef QT_DEBUG
 #include <QDebug>
@@ -15,20 +18,20 @@
 namespace cloudrain{
 namespace gui {
 
-    class Menu : public QDialog
+    class Options : public QDialog
     {
         Q_OBJECT
 
         private :
         protected:
         public :
-            explicit Menu(QWidget *parent = nullptr);
+            explicit Options(QWidget *parent = nullptr);
             void  cascadingStyleSheets();
-            virtual ~Menu() noexcept;
+            virtual ~Options() noexcept;
     };
 
 }
 }
 
 
-#endif // MENU_H
+#endif // OPTIONS_H
