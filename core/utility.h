@@ -5,6 +5,7 @@
 #include <chrono>
 #include <random>
 #include <sstream>
+#include <iomanip>
 
 #include <QString>
 #include <QVector>
@@ -60,7 +61,65 @@ namespace utility  {
 }
 } // END NAMESPACE cloudrain::utility
 
-
+//time utc/gmt
+namespace cloudrain {
+namespace utility {
+    namespace datetime {
+        inline std::string GMTDateTime()
+        {
+            std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            std::tm * ptm = std::gmtime(&time);
+            std::stringstream ss;
+            ss << std::put_time(ptm,"GMT : [%d-%m-%y] - [%X]");
+            return ss.str();
+        }
+        inline std::string UTCDateTime()
+        {
+            std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            std::tm * ptm = std::localtime(&time);
+            std::stringstream ss;
+            ss << std::put_time(ptm,"UTC : [%d-%m-%y] - [%X]");
+            return ss.str();
+        }
+    }
+    namespace date {
+        inline std::string GMTDate()
+        {
+            std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            std::tm * ptm = std::gmtime(&time);
+            std::stringstream ss;
+            ss << std::put_time(ptm,"GMT : [%d-%m-%y]");
+            return ss.str();
+        }
+        inline std::string UTCDate()
+        {
+            std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            std::tm * ptm = std::gmtime(&time);
+            std::stringstream ss;
+            ss << std::put_time(ptm,"UTC : [%d-%m-%y]");
+            return ss.str();
+        }
+    }
+    namespace time {
+        inline std::string GMTTime()
+        {
+            std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            std::tm * ptm = std::gmtime(&time);
+            std::stringstream ss;
+            ss << std::put_time(ptm,"GMT : [%X]");
+            return ss.str();
+        }
+        inline std::string UTCTime()
+        {
+            std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            std::tm * ptm = std::gmtime(&time);
+            std::stringstream ss;
+            ss << std::put_time(ptm,"UTC : [%X]");
+            return ss.str();
+        }
+    }
+}
+}
 
 
 // test timer (cout)
