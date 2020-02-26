@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+<file alias="db/SQLite.txt">D:/Users/win/Documents/GitHub/CloudRain/cloudRainServer/src/db/SQLite.txt</file>
+</qresource>
+</RCC>

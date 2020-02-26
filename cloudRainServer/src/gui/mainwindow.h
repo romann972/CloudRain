@@ -44,6 +44,10 @@ namespace gui {
         public :
             explicit MainWindow(QWidget *parent = nullptr);
             virtual ~MainWindow() noexcept;
+
+    private slots:
+            void affichageImage();
+            void docDisplay();
     };
 
 }
