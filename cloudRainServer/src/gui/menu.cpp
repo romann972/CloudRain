@@ -7,32 +7,24 @@ cloudrain::gui::Menu::Menu(QWidget *parent)
     this->setWindowTitle(QObject::tr(""));
     this->setWindowIcon(QIcon("Icon en attente YaYa94"));
 
-    //  ACCUEIL WIDGETS UI //
     QLabel *analyseTitleLabel = new QLabel("Logs Analyse", this);
     QPushButton *logsServerButton = new QPushButton("Logs Server", this);
     QPushButton *logsWebSiteButton = new QPushButton("Logs WebSite", this);
     QPushButton *logsAccessButton = new QPushButton("Logs Access", this);
     QPushButton *clearButton = new QPushButton("Clear", this);
-    //*********************************
 
-    // ACCUEIL WIDGETS UI //
-    analyseTitleLabel->setGeometry(50, 350, 150 , 40);
-    logsServerButton->setGeometry(50, 350, 150 , 40);
-    logsWebSiteButton->setGeometry(50, 350, 150 , 40);
-    logsAccessButton->setGeometry(50, 350, 150 , 40);
-    clearButton->setGeometry(50, 350, 150 , 40);
-    //*********************************
+    analyseTitleLabel->setGeometry(400, 50, 150 , 40);
+    logsServerButton->setGeometry(50, 50, 150 , 40);
+    logsWebSiteButton->setGeometry(50, 100, 150 , 40);
+    logsAccessButton->setGeometry(50, 150, 150 , 40);
+    clearButton->setGeometry(150, 200, 150 , 40);
 
-    // ACCUEIL IMPLEMENTED WIDGETS //
     QObject::connect(logsServerButton, &QPushButton::clicked, []()->void {
         qDebug()<<"fff";
     });
-    //*********************************
 
     analyseTitleLabel->setAlignment(Qt::AlignRight);
 
-
-    // IMPLEMENTED WIDGETS //
     QObject::connect(logsServerButton, &QPushButton::clicked, []()->void {
 
     });
@@ -48,7 +40,6 @@ cloudrain::gui::Menu::Menu(QWidget *parent)
     QObject::connect(clearButton, &QPushButton::clicked, []()->void {
 
     });
-    //*******************************
 
     this->cascadingStyleSheets();
 

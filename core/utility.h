@@ -16,7 +16,8 @@
 */
 
 // return std::string sql prefix (std)
-namespace cloudrain::utility {
+namespace cloudrain{
+namespace utility  {
 
     namespace sql{
 
@@ -56,15 +57,15 @@ namespace cloudrain::utility {
         }
 
     } // END NAMESPACE sql
-
+}
 } // END NAMESPACE cloudrain::utility
 
 
 
 
 // test timer (cout)
-namespace cloudrain::utility {
-
+namespace cloudrain {
+namespace utility {
     namespace timer {
 
         using clock = std::chrono::high_resolution_clock;
@@ -103,12 +104,13 @@ namespace cloudrain::utility {
         }
 
     } // END NAMESPACE test
-
+}
 } // END NAMESPACE cloudrain::utility
 
 
 // test timer (qDebug)
-namespace cloudrain::utility {
+namespace cloudrain {
+namespace utility {
 
     namespace test {
 
@@ -118,12 +120,12 @@ namespace cloudrain::utility {
         }
 
     } // END NAMESPACE test
-
+}
 } // END NAMESPACE cloudrain::utility
 
 
-namespace cloudrain::utility {
-
+namespace cloudrain {
+namespace utility {
     namespace crypto {
 
         enum hash {
@@ -242,12 +244,13 @@ namespace cloudrain::utility {
         }
 
     } // END NAMESPACE crypto
-
+}
 } // END NAMESPACE cloudrain::utility
 
 
 // unique::token
-namespace cloudrain::utility {
+namespace cloudrain {
+namespace utility {
 
     namespace token {
 
@@ -268,7 +271,7 @@ namespace cloudrain::utility {
         }
 
     } // END NAMESPACE token
-
+}
 } // END NAMESPACE cloudrain::utility
 
 

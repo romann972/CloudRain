@@ -8,7 +8,10 @@
 #include <QDebug>
 #endif
 
-namespace cloudrain::utility::io {
+namespace cloudrain {
+namespace utility {
+namespace io {
+
     class File : public QObject
     {
         private :
@@ -30,6 +33,9 @@ namespace cloudrain::utility::io {
 
             virtual ~File() noexcept;
     };
+
+}
+}
 }
 
 #endif // FILE_H

@@ -8,9 +8,12 @@
 #ifdef QT_NO_DEBUG
 #endif
 
-namespace cloudrain::gui::global {
+namespace cloudrain {
+namespace gui {
+namespace global {
+
 #ifdef QT_DEBUG
-    const QString PATH = QStringLiteral("C:/CloudRain/CloudRain/cloudRainServer/build/windows/rcs"); // your path
+    const QString PATH = QStringLiteral("C:/CloudRain/CloudRain/cloudRainServer/build/windows/rcs");
 #endif
 
 #ifdef QT_NO_DEBUG
@@ -48,5 +51,7 @@ namespace cloudrain::gui::global {
             const QString APACHE_VIRTUAL_HOST = APACHE_DIR + QStringLiteral("");
         }
     }
+    }
+}
 }
 #endif // GLOBAL_H

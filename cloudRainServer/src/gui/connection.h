@@ -12,7 +12,7 @@
 #include "global.h"
 
 
-namespace cloudrain{
+namespace cloudrain {
 namespace gui {
 
     struct StateType {
