@@ -1,6 +1,10 @@
 QT += widgets
 QT += sql
 
+
+TRANSLATIONS += cloudrain_fr.ts
+TRANSLATIONS += cloudrain_en.ts
+
 QMAKE_CXXFLAGS_RELEASE += -O3
 QMAKE_CXXFLAGS_DEBUG += -Og
 QMAKE_CXXFLAGS += -std=c++17

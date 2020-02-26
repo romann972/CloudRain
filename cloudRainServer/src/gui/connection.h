@@ -1,12 +1,21 @@
 #ifndef CONNECTION_H
 #define CONNECTION_H
-#include <QWidget>
+#include <QDialog>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+
+#ifdef QT_DEBUG
+#include <QDebug>
+#endif
+
+#include "global.h"
 
 
 namespace cloudrain{
 namespace gui {
 
-    class Connection : public QWidget
+    class Connection : public QDialog
     {
         Q_OBJECT
 
@@ -14,6 +23,7 @@ namespace gui {
         protected:
         public :
             explicit Connection(QWidget *parent = nullptr);
+            void  cascadingStyleSheets();
             virtual ~Connection() noexcept;
     };
 

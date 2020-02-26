@@ -50,16 +50,6 @@ namespace cloudrain::utility {
             return prefix += "_";
         }
 
-    } // END NAMESPACE sql
-
-} // END NAMESPACE cloudrain::utility
-
-
-// qGeneratePrefix
-namespace cloudrain::utility {
-
-    namespace sql{
-
         inline QString qGeneratePrefix(const int iteration)
         {
             return QString::fromStdString(generatePrefix(iteration));
@@ -70,6 +60,8 @@ namespace cloudrain::utility {
 } // END NAMESPACE cloudrain::utility
 
 
+
+/*
 // test timer (cout)
 namespace cloudrain::utility {
 
@@ -279,6 +271,6 @@ namespace cloudrain::utility {
 
 } // END NAMESPACE cloudrain::utility
 
-
+*/
 
 #endif // UTILITY_H
