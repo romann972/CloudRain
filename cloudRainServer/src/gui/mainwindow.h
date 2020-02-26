@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QStackedWidget>
+#include <QCloseEvent>
 
 #ifdef QT_DEBUG
 #include <QDebug>
@@ -13,6 +14,7 @@
 #include "connection.h"
 #include "menu.h"
 #include "options.h"
+#include "windowanimation.h"
 #include "../db/management.h"
 
 namespace cloudrain{
@@ -38,12 +40,16 @@ namespace gui {
             QStackedWidget *widgetStack;
             Menu *menu;
             Options *options;
-            Connection *connection;
+
+        private :
+            WindowAnimation *windowAnimation;
+            bool finishedCloseEvent = false;
 
         protected:
         public :
             explicit MainWindow(QWidget *parent = nullptr);
-            virtual ~MainWindow() noexcept;
+            virtual void closeEvent (QCloseEvent *event) override;
+            virtual ~MainWindow() noexcept override;
     };
 
 }

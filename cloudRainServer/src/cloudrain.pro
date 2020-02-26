@@ -18,7 +18,8 @@ SOURCES += \
     main.cpp \
     gui/connection.cpp \
     gui/menu.cpp \
-    gui/options.cpp
+    gui/options.cpp \
+    gui/windowanimation.cpp \
 
 HEADERS += \
     db/management.h \
@@ -27,8 +28,12 @@ HEADERS += \
     gui/mainwindow.h \
     gui/connection.h \
     gui/menu.h \
-    gui/options.h
+    gui/options.h \
+    gui/windowanimation.h \
 
 
 RESOURCES += \
-    db/SQLite.txt
+    db/SQLite.txt \
+    ../../license.txt \
+    ../../license.html \
+    ../../README.md \

@@ -6,13 +6,19 @@ cloudrain::gui::Connection::Connection(QWidget *parent)
     using namespace cloudrain::gui;
 
     this->setFixedSize(800,450);
-    this->setWindowTitle(QObject::tr(""));
-    this->setWindowIcon(QIcon(global::icon::HELP_512));
+    this->setWindowTitle(QObject::tr("Connect to a client"));
+    this->setWindowIcon(QIcon(""));
 
     this->initLabel();
     this->initButton();
     this->initLineEdit();
 
+    this->setWindowFlags(Qt::FramelessWindowHint);
+    this->setAttribute(Qt::WA_TranslucentBackground);
+    this->setAttribute(Qt::WA_PaintOnScreen);
+
+    this->windowAnimation = new WindowAnimation(this);
+    this->windowAnimation->runWindowAnimation(QStringLiteral("windowGoDown"), this);
    // this->cascadingStyleSheets();
 }
 
@@ -65,7 +71,7 @@ void cloudrain::gui::Connection::initButton()
      QPushButton *cancelButton = new QPushButton(QObject::tr("Cancel"), this);
 
      cancelButton->setGeometry(425, 350, 150 , 40);
-     cancelButton->setIcon(QIcon(global::icon::FLAG_FR_512));
+    //cancelButton->setIcon(QIcon(global::icon::FLAG_FR_512));
 
      QObject::connect(cancelButton, &QPushButton::clicked, []()->void {
         qDebug()<<"optButton";
@@ -73,27 +79,13 @@ void cloudrain::gui::Connection::initButton()
 
      QPushButton *frButton = new QPushButton(QObject::tr(""), this);
      frButton->setGeometry(300, 300, 50 , 50);
-     frButton->setIcon(QIcon(global::icon::FLAG_FR_512));
+     //frButton->setIcon(QIcon(global::icon::FLAG_FR_512));
      frButton->setIconSize(QSize(50, 50));
      frButton->setStyleSheet("background: transparent;"
                              "QPushButton::hover {"
                              "background: blue;"
                                 "image: url("+ global::icon::INFO_512 +");"
                              "}");
-     QPushButton *enButton = new QPushButton(QObject::tr(""), this);
-     enButton->setGeometry(375, 300, 50 , 50);
-     enButton->setIcon(QIcon(global::icon::FLAG_UK_512));
-     QPushButton *ptButton = new QPushButton(QObject::tr(""), this);
-     ptButton->setGeometry(450, 300, 50 , 50);
-     ptButton->setIcon(QIcon(global::icon::FLAG_FR_512));
-     QPushButton *dzButton = new QPushButton(QObject::tr(""), this);
-     dzButton->setGeometry(525, 300, 50 , 50);
-     dzButton->setIcon(QIcon(global::icon::FLAG_FR_512));
-
-
-
-
-
 
 
 
@@ -109,6 +101,27 @@ void cloudrain::gui::Connection::initLineEdit()
     idEdit->setGeometry(350, 150, 150 , 25);
     ipEdit->setGeometry(350, 200, 150 , 25);
     tokenEdit->setGeometry(350, 250, 150 , 25);
+}
+
+void cloudrain::gui::Connection::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_Escape)
+       {
+           windowAnimation->runWindowAnimation("windowGoUp", this);
+           QObject::connect(windowAnimation, &WindowAnimation::finishedAnimation, [this]()->void {
+               this->close();
+           });
+       }
+}
+
+void cloudrain::gui::Connection::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    QColor color(0, 0, 0);
+    color.setAlpha(128);
+    painter.setBrush(QBrush(color));
+    painter.setPen(Qt::NoPen);
+    painter.drawRect(0, 0, this->width(), this->height());
 }
 
 cloudrain::gui::Connection::~Connection() noexcept

@@ -10,6 +10,7 @@
 #endif
 
 #include "global.h"
+#include "connection.h"
 
 
 namespace cloudrain{
@@ -20,9 +21,11 @@ namespace gui {
         Q_OBJECT
 
         private :
+
         protected:
         public :
             explicit Menu(QWidget *parent = nullptr);
+            void initPushButton();
             void  cascadingStyleSheets();
             virtual ~Menu() noexcept;
     };

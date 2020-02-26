@@ -3,40 +3,38 @@
 cloudrain::gui::MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    //Affichage de l'image dans le fond
-    QLabel *label = new QLabel(this);
-    QPixmap pixmap("C:/cloudrain.jpg");
-    label->setPixmap(pixmap);
-    label->resize(pixmap.size());
-
     // UI WINDOWS //
-    setFixedSize(800,450);
-    setWindowIcon(QIcon("path"));
+    this->setFixedSize(800,450);
+    this->setWindowIcon(QIcon("path"));
 
     this->widgetStack = new QStackedWidget(this);
+
     this->menu = new Menu(this);
     this->options = new Options(this);
-    this->connection = new Connection(this);
 
     this->widgetStack->addWidget(menu);
     this->widgetStack->addWidget(options);
-    this->widgetStack->addWidget(connection);
     this->widgetStack->setCurrentIndex(0);
 
     this->setCentralWidget(this->widgetStack);
 
-    QToolBar *toolBar = new QToolBar(this);
-        QAction *openImage = new QAction("Open");
-        QAction *editBar = new QAction("Edit");
-        QAction *optionsBar = new QAction("Options");
-        QAction *languageBar = new QAction("Language");
-        QAction *helpBar = new QAction("Help");
 
-        toolBar->addAction(openImage);
-        toolBar->addAction(editBar);
-        toolBar->addAction(optionsBar);
-        toolBar->addAction(languageBar);
-        toolBar->addAction(helpBar);
+    this->windowAnimation = new WindowAnimation(this);
+    this->windowAnimation->runWindowAnimation(QStringLiteral("windowGoDown"), this);
+}
+
+
+void cloudrain::gui::MainWindow::closeEvent (QCloseEvent *event)
+{
+    if(!finishedCloseEvent)
+    {
+        event->ignore();
+        this->windowAnimation->runWindowAnimation(QStringLiteral("windowGoUp"), this);
+        QObject::connect(this->windowAnimation, &WindowAnimation::finishedAnimation, [this]()->void {
+            this->finishedCloseEvent = true;
+            this->close();
+        });
+    }
 }
 
 cloudrain::gui::MainWindow::~MainWindow() noexcept

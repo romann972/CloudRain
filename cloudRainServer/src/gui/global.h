@@ -13,7 +13,7 @@ namespace gui {
 namespace global {
 
 #ifdef QT_DEBUG
-    const QString PATH = QStringLiteral("C:/CloudRain/CloudRain/cloudRainServer/build/windows/rcs");
+    const QString PATH = QStringLiteral("D:/Qt programmation/cloudrain/CloudRain/cloudRainServer/build/windows/rcs");
 #endif
 
 #ifdef QT_NO_DEBUG
@@ -31,8 +31,11 @@ namespace global {
         // use BACKGROUND
     }
     namespace icon {
-        const QString FLAG_FR_512 = PATH + QStringLiteral("/icon/flag_france_512.png");
-        const QString FLAG_UK_512 = PATH + QStringLiteral("/icon/flag_united-kingdom_512.png");
+        const QString FLAG_FR = PATH + QStringLiteral("/icon/france.png");
+        const QString FLAG_AR = PATH + QStringLiteral("/icon/algeria.png");
+        const QString FLAG_US = PATH + QStringLiteral("/icon/united_states_of_america.png");
+        const QString FLAG_PL = PATH + QStringLiteral("/icon/portugal.png");
+
         const QString HELP_512 = PATH + QStringLiteral("/icon/help_512.png");
         const QString INFO_512 = PATH + QStringLiteral("/icon/information_512.png");
         const QString SETTINGS_512 = PATH + QStringLiteral("/icon/settings_512.png");

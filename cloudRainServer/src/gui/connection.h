@@ -4,12 +4,15 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QKeyEvent>
+#include <QPainter>
 
 #ifdef QT_DEBUG
 #include <QDebug>
 #endif
 
 #include "global.h"
+#include "windowanimation.h"
 
 
 namespace cloudrain {
@@ -32,7 +35,8 @@ namespace gui {
         Q_OBJECT
 
         private :
-            QString state;
+            StateType state;
+            WindowAnimation *windowAnimation;
 
         protected:
         public :
@@ -40,8 +44,10 @@ namespace gui {
             void initLabel();
             void initButton();
             void initLineEdit();
+            virtual void paintEvent(QPaintEvent *) override;
+            virtual void keyPressEvent(QKeyEvent *event) override;
             void cascadingStyleSheets();
-            virtual ~Connection() noexcept;
+            virtual ~Connection() noexcept override;
     };
 
 }
