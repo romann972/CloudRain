@@ -22,6 +22,12 @@ SOURCES += \
     gui/options.cpp \
     gui/windowanimation.cpp \
 
+SOURCES += \
+    ../../core/utility.cpp \
+    ../../core/file.cpp \
+    ../../core/jsonparser.cpp \
+    ../../core/xmlparser.cpp \
+
 HEADERS += \
     db/management.h \
     db/schema.h \
@@ -32,6 +38,12 @@ HEADERS += \
     gui/menu.h \
     gui/options.h \
     gui/windowanimation.h \
+
+HEADERS += \
+    ../../core/utility.h \
+    ../../core/file.h \
+    ../../core/jsonparser.h \
+    ../../core/xmlparser.h \
 
 
 RESOURCES += \
