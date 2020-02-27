@@ -16,6 +16,7 @@ cloudrain::db::Schema::Schema(const QString prefix) : prefix(prefix)
 
 QStringList cloudrain::db::Schema::getSchema()
 {
+    
     return this->tables;
 }
 
@@ -25,11 +26,30 @@ QString cloudrain::db::Schema::getServer()
 }
 QString cloudrain::db::Schema::getTime()
 {
-    return "";
+    Qstring time = "CREATE TABLE IF NOT EXISTS "+ this->prefix +"time"
+                    "("
+                       "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                       "date_GMT DATE NOT NULL,"
+                       "date_UTC DATE NOT NULL,"
+                       "id_server INTEGER,"
+                       "FOREIGN KEY(id_server) REFERENCES server(id)"
+                    ");";
+    return time;
 }
 QString cloudrain::db::Schema::getSrvInfo()
 {
-   return "";
+    Qstring srvinfo = "CREATE TABLE IF NOT EXISTS "+ this->prefix +"srvinfo"
+                       "("
+                          "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                          "udp_number INTEGER,"
+                          "tcp_number INTEGER,"
+                          "id_time INTEGER,"
+                          "ip VARCHAR(100),"
+                          "banned_number INTEGER,"
+                          "connect_silmuataneous,"
+                          "FOREIGN KEY(id_time) REFERENCES time(id)"
+                        ");";
+   return srvinfo;
 }
 
 QString cloudrain::db::Schema::getClient()
