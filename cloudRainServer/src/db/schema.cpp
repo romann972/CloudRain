@@ -22,7 +22,20 @@ QStringList cloudrain::db::Schema::getSchema()
 
 QString cloudrain::db::Schema::getServer()
 {
-    return "";
+    Qstring server = "CREATE TABLE IF NOT EXISTS "+ this->prefix +"server"
+                     "("
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        "token VARCHAR(100) NOT NULL,"
+                        "lang VARCHAR(100) NOT NULL,"
+                        "time DATE NOT NULL,"
+                        "os VARCHAR(100) NOT NULL,"
+                        "version VARCHAR(100) NOT NULL,"
+                        "ip VARCHAR(100) NOT NULL,"
+                        "counter_info VARCHAR(100) NOT NULL,"
+                        "id_time INTEGER,"
+                        "FOREIGN KEY(id_time) REFERENCES time(id)
+                     ");";
+    return server;
 }
 QString cloudrain::db::Schema::getTime()
 {
@@ -74,7 +87,7 @@ QString cloudrain::db::Schema::getMysql()
                         "id_client INTEGER,"
                         "date_GMT DATE NOT NULL,"
                         "date_UTC DATE NOT NULL,"
-                        "FOREIGN KEY(id_client) REFERENCES user(id)"
+                        "FOREIGN KEY(id_client) REFERENCES client(id)"
                     ");";
     return mysql;
 }
@@ -106,7 +119,7 @@ QString cloudrain::db::Schema::getApache()
                         "id_client INTEGER,"
                         "date_GMT DATE NOT NULL,"
                         "date_UTC DATE NOT NULL,"
-                        "FOREIGN KEY(id_client) REFERENCES user(id)"
+                        "FOREIGN KEY(id_client) REFERENCES client(id)"
                     ");";
     return apache;
 }
