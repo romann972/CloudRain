@@ -42,19 +42,9 @@ namespace global {
         const QString CANCEL_512 = PATH + QStringLiteral("/icon/cancel_512.png");
         const QString TICK_512 = PATH + QStringLiteral("/icon/tick_512.png");
     }
-    namespace target {
-        const QString ROOT_PATH = QStringLiteral("");
-        namespace mysql {
-            const QString MYSQL_LOG = PATH + QStringLiteral("");
-            const QString MYSQL_VAR_ENV = QStringLiteral("");
-            const QString MYSQL_PORT = QStringLiteral("");
-        }
-        namespace apache {
-            const QString APACHE_DIR = QStringLiteral("");
-            const QString APACHE_LOG = APACHE_DIR + QStringLiteral("");
-            const QString APACHE_CONF = APACHE_DIR + QStringLiteral("");
-            const QString APACHE_VIRTUAL_HOST = APACHE_DIR + QStringLiteral("");
-        }
+    namespace db {
+        const QString SQLITE_PATH = PATH + QStringLiteral("");
+        const QString SQLITE_NAME = "cloudrain.db";
     }
     }
 }

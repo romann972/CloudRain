@@ -11,6 +11,7 @@
 
 #include "global.h"
 #include "connection.h"
+#include "../socket/tcpserver.h"
 
 
 namespace cloudrain{
@@ -21,11 +22,16 @@ namespace gui {
         Q_OBJECT
 
         private :
+            QLabel *statusView;
+            cloudrain::socket::TcpServer *tcpServer;
+            QPushButton *serverStartStop;
 
         protected:
         public :
-            explicit Menu(QWidget *parent = nullptr);
+            explicit Menu(cloudrain::socket::TcpServer *tcpServer, QWidget *parent = nullptr);
             void initPushButton();
+            void initLabel();
+            QString startStopStatus();
             void  cascadingStyleSheets();
             virtual ~Menu() noexcept;
 

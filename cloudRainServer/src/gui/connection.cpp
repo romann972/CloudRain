@@ -37,27 +37,12 @@ cloudrain::gui::Connection::Connection(QWidget *parent)
     QObject::connect(timer, &QTimer::timeout, [this]()->void {
         this->update();
     });
-   // this->cascadingStyleSheets();
 }
 
-/*void cloudrain::gui::Connection::cascadingStyleSheets()
+void cloudrain::gui::Connection::cascadingStyleSheets()
 {
-    this->setStyleSheet("QPushButton::hover {"
-                                "background: transparent;"
-                                "image: url("+ global::icon::FLAG_FR_512 +");"
-                                "border-radius:5px;"
-                                "border: 2px dotted;"
-                            "}"
-                            "QLabel::hover {"
-                                "image: url("+ global::icon::INFO_512 +");"
-                                "color: transparent;"
-                            "}"
-                            "QIcon::hover {"
-                                "background: transparent;"
-                                "image: url(C:/Users/yyakoubi/Downloads/flag_united-kingdom_512.png);"
-                            "}"
-                            );
-}*/
+    // empty
+}
 
 void cloudrain::gui::Connection::generateStar(void)
 {

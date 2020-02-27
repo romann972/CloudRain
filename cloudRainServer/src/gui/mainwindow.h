@@ -14,6 +14,7 @@
 #include "connection.h"
 #include "menu.h"
 #include "options.h"
+#include "socket/tcpserver.h"
 #include "windowanimation.h"
 #include "../db/management.h"
 
@@ -40,12 +41,14 @@ namespace gui {
             QStackedWidget *widgetStack;
             Menu *menu;
             Options *options;
+            cloudrain::socket::TcpServer *tcpServer;
 
         private :
             WindowAnimation *windowAnimation;
             bool finishedCloseEvent = false;
 
         protected:
+
         public :
             explicit MainWindow(QWidget *parent = nullptr);
             virtual void closeEvent (QCloseEvent *event) override;

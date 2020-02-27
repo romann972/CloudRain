@@ -1,12 +1,12 @@
 #include "Menu.h"
 
-cloudrain::gui::Menu::Menu(QWidget *parent)
-    : QDialog(parent)
+cloudrain::gui::Menu::Menu(cloudrain::socket::TcpServer *TcpServer, QWidget *parent)
+    : QDialog(parent), tcpServer(TcpServer)
 {
     this->setFixedSize(800,450);
     this->setWindowTitle(QObject::tr("Menu"));
     this->setWindowIcon(QIcon(""));
-
+    /*
     QLabel *analyseTitleLabel = new QLabel("Logs Analyse", this);
     QPushButton *logsServerButton = new QPushButton("Logs Server", this);
     QPushButton *logsWebSiteButton = new QPushButton("Logs WebSite", this);
@@ -40,12 +40,46 @@ cloudrain::gui::Menu::Menu(QWidget *parent)
     QObject::connect(clearButton, &QPushButton::clicked, []()->void {
 
     });
+    */
+
     this->initPushButton();
+    this->initLabel();
     this->cascadingStyleSheets();
 }
 
+void cloudrain::gui::Menu::initLabel()
+{
+    QLabel *statusTitle = new QLabel("<strong>Server status</strong>", this);
+    this->statusView = new QLabel("<em style=\"color:red;\">\""+ this->tcpServer->getServerStatus() +"\"</em>", this);
+
+    statusTitle->setGeometry(500, 0, 50 ,50);
+    this->statusView->setGeometry(550, 0,60 , 50);
+}
+QString cloudrain::gui::Menu::startStopStatus()
+{
+    if(this->tcpServer->getServerStatus() == "Listen")
+    {
+        return "Stop";
+    }else {
+        return "Start";
+    }
+}
 void cloudrain::gui::Menu::initPushButton()
 {
+    this->serverStartStop = new QPushButton(this->startStopStatus(), this);
+    this->serverStartStop->setGeometry(720, 0, 80, 50);
+    QObject::connect(this->serverStartStop, &QPushButton::clicked, [this]()->void {
+        if(this->startStopStatus() == "Stop")
+        {
+            this->tcpServer->shutdownServer();
+            this->serverStartStop->setText(this->startStopStatus());
+        } else if(this->startStopStatus() == "Start") {
+            this->tcpServer->connectServer();
+            this->serverStartStop->setText(this->startStopStatus());
+        }else {
+            this->serverStartStop->setText(this->startStopStatus());
+        }
+    });
     [this]()->void {
         int x{5}, y{5};
         for(auto &i : {"FR", "PL", "EN", "AR"})

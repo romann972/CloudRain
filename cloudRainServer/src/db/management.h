@@ -11,6 +11,7 @@
 #endif
 
 #include "schema.h"
+#include "../gui/global.h"
 #include "../../core/utility.h"
 #include "../../core/file.h"
 #include "../../core/xmlparser.h"

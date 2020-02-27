@@ -1,5 +1,6 @@
 QT += widgets
 QT += sql
+QT += network
 
 
 TRANSLATIONS += cloudrain_fr_FR.ts
@@ -21,6 +22,8 @@ SOURCES += \
     gui/menu.cpp \
     gui/options.cpp \
     gui/windowanimation.cpp \
+    socket/tcpclient.cpp \
+    socket/tcpserver.cpp \
 
 SOURCES += \
     ../../core/utility.cpp \
@@ -38,6 +41,8 @@ HEADERS += \
     gui/menu.h \
     gui/options.h \
     gui/windowanimation.h \
+    socket/tcpclient.h \
+    socket/tcpserver.h \
 
 HEADERS += \
     ../../core/utility.h \

@@ -7,9 +7,11 @@ cloudrain::gui::MainWindow::MainWindow(QWidget *parent)
     this->setFixedSize(800,450);
     this->setWindowIcon(QIcon("path"));
 
+    this->tcpServer = new cloudrain::socket::TcpServer(this);
+
     this->widgetStack = new QStackedWidget(this);
 
-    this->menu = new Menu(this);
+    this->menu = new Menu(this->tcpServer, this);
     this->options = new Options(this);
 
     QObject::connect(this->menu, &Menu::hideMainWindow, [this](bool hide)->void {

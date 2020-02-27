@@ -2,8 +2,8 @@
 
 const QString cloudrain::db::Management::name = "QSQLITE";
 QSqlDatabase cloudrain::db::Management::db = QSqlDatabase::addDatabase(name);
-const QString cloudrain::db::Management::hostName="localhost";
-const QString cloudrain::db::Management::path="path.db";
+const QString cloudrain::db::Management::hostName = cloudrain::gui::global::db::SQLITE_PATH;
+const QString cloudrain::db::Management::path = cloudrain::gui::global::db::SQLITE_NAME;
 QSqlQuery cloudrain::db::Management::query = QSqlQuery(cloudrain::db::Management::db);
 
 
@@ -47,7 +47,10 @@ void cloudrain::db::Management::createTable()
    {
         Management::query.prepare(i);
         Management::query.exec();
-        if(true) {}
+        if(true)
+        {
+
+        }
    }
 }
 

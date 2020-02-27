@@ -15,7 +15,7 @@ cloudrain::gui::Options::Options(QWidget *parent)
         QAction *helpBar = new QAction("Edit");
 
         //On doit faire un slot qui ouvre dans la fenêtre actuel l'image
-        connect(openImage, SIGNAL(triggered()), this, SLOT(affichageImage()));
+        //connect(openImage, SIGNAL(triggered()), this, SLOT(affichageImage()));
         openImage->setShortcut(QKeySequence("Ctrl+O"));
         toolBar->addAction(openImage);
 
