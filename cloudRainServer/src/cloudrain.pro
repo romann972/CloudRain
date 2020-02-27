@@ -2,10 +2,10 @@ QT += widgets
 QT += sql
 
 
-TRANSLATIONS += cloudrain_fr.ts
-TRANSLATIONS += cloudrain_en.ts
-TRANSLATIONS += cloudrain_pt.ts
-TRANSLATIONS += cloudrain_ar.ts
+TRANSLATIONS += cloudrain_fr_FR.ts
+TRANSLATIONS += cloudrain_en_EN.ts
+TRANSLATIONS += cloudrain_pt_PT.ts
+TRANSLATIONS += cloudrain_ar_AR.ts
 
 QMAKE_CXXFLAGS_RELEASE += -O3
 QMAKE_CXXFLAGS_DEBUG += -Og
