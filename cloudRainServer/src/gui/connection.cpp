@@ -1,5 +1,11 @@
 #include "connection.h"
 
+#define STAR_SIZE_MAX 10.0
+#define STAR_NUMBER 50
+#define STAR_SPEED_NORMAL 0.01
+#define STAR_SPEED_PLUS 0.05
+
+
 cloudrain::gui::Connection::Connection(QWidget *parent)
     : QDialog(parent)
 {
@@ -23,6 +29,14 @@ cloudrain::gui::Connection::Connection(QWidget *parent)
 
     this->windowAnimation = new WindowAnimation(this);
     this->windowAnimation->runWindowAnimation(QStringLiteral("windowGoDown"), this);
+    this->generateStar();
+
+    this->timer = new QTimer(this);
+
+    this->timer->start(1);
+    QObject::connect(timer, &QTimer::timeout, [this]()->void {
+        this->update();
+    });
    // this->cascadingStyleSheets();
 }
 
@@ -44,6 +58,17 @@ cloudrain::gui::Connection::Connection(QWidget *parent)
                             "}"
                             );
 }*/
+
+void cloudrain::gui::Connection::generateStar(void)
+{
+    for(int i = 0; i<STAR_NUMBER; i++)
+    {
+        double size = QRandomGenerator::global()->bounded(STAR_SIZE_MAX);
+        int x = QRandomGenerator::global()->bounded(0, this->width());
+        int y = QRandomGenerator::global()->bounded(0, this->height());
+        this->starContainer.push_back(qMakePair(QPointF(x, y),QSizeF(size, size)));
+    }
+}
 
 void cloudrain::gui::Connection::initLabel()
 {
@@ -117,8 +142,49 @@ void cloudrain::gui::Connection::paintEvent(QPaintEvent *)
     QColor color(0, 0, 0);
     color.setAlpha(192);
     painter.setBrush(QBrush(color));
+    painter.setRenderHint(QPainter::Antialiasing);
     painter.setPen(Qt::NoPen);
     painter.drawRect(0, 0, this->width(), this->height());
+
+    auto drawPointLambda = [&painter](const double &x, const double &y, const double &w, const double &h)->void {
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(QBrush(Qt::white));
+        painter.drawEllipse(QRectF(x, y, w ,h));
+    };
+    for(auto &i: this->starContainer)
+    {
+        double speed = STAR_SPEED_NORMAL;
+        if(i.second.width() > 8.0)
+        {
+            speed = STAR_SPEED_PLUS;
+        }
+        if(i.first.x() > this->width()/2 && i.first.y() >this->height()/2)
+        {
+            i.first.setX(i.first.x() + speed);
+            i.first.setY(i.first.y() + speed);
+        } else if (i.first.x() < this->width()/2 && i.first.y() < this->height()/2) {
+            i.first.setX(i.first.x() - speed);
+            i.first.setY(i.first.y() - speed);
+        } else if(i.first.x() > this->width()/2 && i.first.y() < this->height()/2) {
+            i.first.setX(i.first.x() + speed);
+            i.first.setY(i.first.y() - speed);
+        } else if (i.first.x() < this->width()/2 && i.first.y() > this->height()/2) {
+            i.first.setX(i.first.x() - speed);
+            i.first.setY(i.first.y() + speed);
+        }
+            i.second.setWidth(i.second.width() + speed);
+            i.second.setHeight(i.second.height() + speed);
+        if(i.second.width() > STAR_SIZE_MAX)
+        {
+            i.second.setWidth(0.0);
+            i.second.setHeight(0.0);
+            int x = QRandomGenerator::global()->bounded(0, this->width());
+            int y = QRandomGenerator::global()->bounded(0, this->height());
+            i.first.setX(x);
+            i.first.setY(y);
+         }
+         drawPointLambda(i.first.x(), i.first.y(), i.second.width(), i.second.height());
+    }
 }
 
 cloudrain::gui::Connection::~Connection() noexcept

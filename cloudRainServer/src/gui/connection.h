@@ -7,8 +7,15 @@
 #include <QKeyEvent>
 #include <QPainter>
 
+#include <QVector>
+#include <QPointF>
+#include <QTimer>
+#include <QRandomGenerator>
+
 #ifdef QT_DEBUG
 #include <QDebug>
+#endif
+#ifdef QT_NO_DEBUG
 #endif
 
 #include "global.h"
@@ -37,6 +44,8 @@ namespace gui {
         private :
             StateType state;
             WindowAnimation *windowAnimation;
+            QTimer *timer;
+            QVector<QPair<QPointF, QSizeF>> starContainer;
 
         protected:
         public :
@@ -44,6 +53,7 @@ namespace gui {
             void initLabel();
             void initButton();
             void initLineEdit();
+            void generateStar();
             virtual void paintEvent(QPaintEvent *) override;
             virtual void keyPressEvent(QKeyEvent *event) override;
             void cascadingStyleSheets();
